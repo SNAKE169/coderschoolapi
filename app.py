@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/', methods= ['GET'])
 def get():
-    return "/query?q='yourtext'"
+    return "/query?q=yourtext"
 
 def get_prod(txt):
     query_body = {
