@@ -3,7 +3,7 @@ import json
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 import re
 
-es = Elasticsearch(hosts=["https://8da9337fc07e.ngrok.io"])
+es = Elasticsearch(hosts=["https://5cc6c3debc4f.ngrok.io"])
 app = Flask(__name__)
 
 @app.route('/', methods= ['GET'])
@@ -21,7 +21,7 @@ def get_prod(txt):
             }
         }
         },
-    "size" : 100
+    "size" : 20
     }
     ans = es.search(index="products", body=query_body)['hits']['hits']
     return ans
@@ -39,8 +39,8 @@ def get_product():
             price = pro['_source']['price']["sellPrice"]
             products.append((name,price))
             pro2.append(pro['_source'])
-        # return json.dumps(pro2,ensure_ascii= False)
-        return render_template('tasks.html', products = products)
+        return json.dumps(pro2,ensure_ascii= False)
+        # return render_template('tasks.html', products = products)
     else:
         return "no txt"
 if __name__ == '__main__':
