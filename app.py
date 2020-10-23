@@ -3,7 +3,7 @@ import json
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 import re
 
-es = Elasticsearch(hosts=["https://cd5eb0031138.ngrok.io"])
+es = Elasticsearch(hosts=["https://393d37a68f31.ngrok.io"])
 app = Flask(__name__)
 
 @app.route('/', methods= ['GET'])
